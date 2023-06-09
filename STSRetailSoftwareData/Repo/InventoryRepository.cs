@@ -18,5 +18,10 @@ namespace STSRetailSoftwareData.Repo
             this.ConnectionString = options.Value.ConnectionString;
             this._context = new(this.ConnectionString);
         }
+
+        public async Task<ICollection<Inventory>> GetInventoryAsync()
+        {
+            return _context.Inventories.ToList();
+        }
     }
 }
